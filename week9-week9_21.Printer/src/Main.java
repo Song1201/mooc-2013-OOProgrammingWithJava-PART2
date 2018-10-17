@@ -1,10 +1,9 @@
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
-        // write some test code here
-        // for testing purposes, project has files
-        //    src/textfile.txt
-        //    src/kalevala.txt
-    }
+  public static void main(String[] args) throws Exception {
+    Printer printer = new Printer("src/textfile.txt");
+    //printer.printLinesWhichContain("Siinä");
+    printer.printLinesWhichContain("vanha");
+  }
 }
