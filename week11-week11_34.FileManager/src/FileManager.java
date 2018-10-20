@@ -9,13 +9,23 @@ import java.util.Scanner;
 
 public class FileManager {
 
-    public List<String> read(String file) throws FileNotFoundException {
-        return null;
-    }
+  public List<String> read(String fileName) throws FileNotFoundException {
+    ArrayList<String> content = new ArrayList<String>();
+    File file = new File(fileName);
+    Scanner reader = new Scanner(file);
+    while(reader.hasNextLine()) content.add(reader.nextLine());
+    return content;
+  }
 
-    public void save(String file, String text) throws IOException {
-    }
+  public void save(String fileName, String text) throws IOException {
+    FileWriter writer = new FileWriter(fileName);
+    writer.write(text);
+    writer.close();
+  }
 
-    public void save(String file, List<String> texts) throws IOException {
-    }
+  public void save(String fileName, List<String> texts) throws IOException {
+    FileWriter writer = new FileWriter(fileName);
+    for(String line:texts) writer.write(line+"\n");
+    writer.close();
+  }
 }
