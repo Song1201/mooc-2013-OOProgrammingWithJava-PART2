@@ -25,7 +25,7 @@ public class UserInterface implements Runnable {
 
     private void createComponents(Container container) {
         board = new DrawingBoard();
-        container.add(board);
+        container.add(board);        
     }
 
     public JFrame getFrame() {
