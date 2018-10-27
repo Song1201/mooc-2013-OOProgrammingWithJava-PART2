@@ -1,34 +1,42 @@
 package movingfigure;
 
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.*;
 
 public class UserInterface implements Runnable {
 
-    private JFrame frame;
+  private JFrame frame;
+  private Figure figure;
 
-    @Override
-    public void run() {
-        frame = new JFrame();
-        frame.setPreferredSize(new Dimension(400, 400));
+  public UserInterface(Figure figure) {
+    this.figure = figure;
+  }
 
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+  @Override
+  public void run() {
+    frame = new JFrame();
+    frame.setPreferredSize(new Dimension(400, 400));
 
-        createComponents(frame.getContentPane());
-        addListeners();
+    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        frame.pack();
-        frame.setVisible(true);
-    }
+    createComponents(frame.getContentPane());
+    addListeners();
 
-    private void createComponents(Container container) {
-    }
+    frame.pack();
+    frame.setVisible(true);
+  }
 
-    private void addListeners() {
-    }
+  private void createComponents(Container container) {
+    container.add(new DrawingBoard(figure));
+  }
 
-    public JFrame getFrame() {
-        return frame;
-    }
+  private void addListeners() {
+    frame.addKeyListener(new KeyboardListener(frame, figure));
+  }
+
+  public JFrame getFrame() {
+    return frame;
+  }
 }
