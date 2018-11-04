@@ -52,6 +52,8 @@ public class UserInterface implements Runnable {
     // The drawing board can be obtained from the frame.
     if(drawingBoard==null) return null;
     return drawingBoard;
+//    if(frame==null) return null;
+//    return (Updatable)frame.getContentPane().getComponent(0);
   }
 
   public JFrame getFrame() {
